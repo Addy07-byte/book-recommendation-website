@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Navigation Bar -->
+<nav style="background: #fff; padding: 15px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 999;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h2 style="margin: 0; color: #bb90f4;">📚 My Book Shelf</h2>
+    <div style="display: flex; gap: 20px;">
+      <a href="index.html" style="text-decoration: none; color: #333; font-weight: 600;">Home</a>
+      <a href="book-list.html" style="text-decoration: none; color: #333; font-weight: 600;">Book List</a>
+      <a href="about.html" style="text-decoration: none; color: #333; font-weight: 600;">About Me</a>
+    </div>
+  </div>
+</nav>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book List | My Book Shelf</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- Hero Section for Book List -->
+<section class="book-list-hero">
+  <h2>Books I Recommend 📚</h2>
+</section>
+
+<!-- Book Cards Section -->
+<section class="book-list-section">
+  <div class="book-grid">
+    
+    <!-- Book 1 -->
+    <div class="book-card" style="--i:1;">
+      <img src="../images/monk-who-sold-his-ferrari.jpg" alt="The Monk Who Sold His Ferrari">
+      <span class="tag">Self-Help</span>
+      <h3>The Monk Who Sold His Ferrari</h3>
+      <p>Robin Sharma</p>
+      <p class="desc">A story about finding purpose and fulfillment beyond material success.</p>
+    </div>
+
+    <!-- Book 2 -->
+    <div class="book-card" style="--i:2;">
+      <img src="../images/rich-dad-poor-dad.jpg" alt="Rich Dad Poor Dad">
+      <span class="tag">Finance</span>
+      <h3>Rich Dad Poor Dad</h3>
+      <p>Robert Kiyosaki</p>
+      <p class="desc">Key lessons about money, investing, and achieving financial freedom.</p>
+    </div>
+
+    <!-- Book 3 -->
+    <div class="book-card" style="--i:3;">
+      <img src="../images/ikigai.jpg" alt="Ikigai">
+      <span class="tag">Mindfulness</span>
+      <h3>Ikigai</h3>
+      <p>Héctor García & Francesc Miralles</p>
+      <p class="desc">The Japanese secret to a long and happy life through purpose and simplicity.</p>
+    </div>
+
+    <!-- Book 4 -->
+    <div class="book-card" style="--i:4;">
+      <img src="../images/think-and-grow-rich.jpg" alt="Think and Grow Rich">
+      <span class="tag">Wealth</span>
+      <h3>Think and Grow Rich</h3>
+      <p>Napoleon Hill</p>
+      <p class="desc">Timeless principles for achieving personal and financial success through mindset.</p>
+    </div>
+
+    <!-- Book 5 -->
+    <div class="book-card" style="--i:5;">
+      <img src="../images/discover-your-destiny.jpg" alt="Discover Your Destiny">
+      <span class="tag">Self-Discovery</span>
+      <h3>Discover Your Destiny</h3>
+      <p>Robin Sharma</p>
+      <p class="desc">A guide to living your highest life and realizing your true potential.</p>
+    </div>
+
+    <!-- Book 6 -->
+    <div class="book-card" style="--i:6;">
+      <img src="../images/think-like-a-monk.jpg" alt="Think Like a Monk">
+      <span class="tag">Spirituality</span>
+      <h3>Think Like a Monk</h3>
+      <p>Jay Shetty</p>
+      <p class="desc">Train your mind for peace, purpose, and a life of service and wisdom.</p>
+    </div>
+
+    <!-- Book 7 -->
+    <div class="book-card" style="--i:7;">
+      <img src="../images/the-power-of-positive-thinking.jpg" alt="The Power of Positive Thinking">
+      <span class="tag">Positivity</span>
+      <h3>The Power of Positive Thinking</h3>
+      <p>Norman Vincent Peale</p>
+      <p class="desc">Develop faith, optimism, and a winning attitude through the power of positive thinking.</p>
+    </div>
+
+  </div>
+</section>
+<!-- Scroll to Top Button -->
+<button onclick="topFunction()" id="scrollTopBtn" title="Go to top">↑</button>
+
+<!-- Script for Scroll to Top -->
+<script>
+  // Get the button
+  let scrollTopBtn = document.getElementById("scrollTopBtn");
+
+  // Show button after scrolling down 300px
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      scrollTopBtn.style.display = "block";
+    } else {
+      scrollTopBtn.style.display = "none";
+    }
+  }
+
+  // When clicked, scroll to top smoothly
+  function topFunction() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+</script>
+
+</body>
+</html>
