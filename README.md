@@ -66,6 +66,27 @@ This static website is built with **HTML/CSS**, hosted on **AWS S3**, delivered 
 
 ---
 
+---
+
+## 🔄 GitHub Actions Workflow
+
+```yaml
+on:
+  push:
+    branches: [ main ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+    - run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }} --delete
+    - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+```
 ----
 
 🙋‍♂️ **About the Creator** 
