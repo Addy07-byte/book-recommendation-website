@@ -85,7 +85,9 @@ jobs:
     - run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }} --delete
     - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
 
-🙋‍♂️ About the Creator 
+----
+
+🙋‍♂️ **About the Creator** 
 I'm an IT graduate with a growing passion for cloud engineering and DevOps.
 I built this project to apply my skills in a practical way and share my personal reading journey.
 
@@ -105,6 +107,8 @@ I'm actively seeking entry-level roles in:
 Cloud/DevOps Engineering
 
 Solutions Architecture
+
+
 
 Technical Consulting
 
