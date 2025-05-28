@@ -90,6 +90,7 @@ jobs:
 ----
 
 🙋‍♂️ **About the Creator** 
+
 I'm an IT graduate with a growing passion for cloud engineering and DevOps.
 I built this project to apply my skills in a practical way and share my personal reading journey.
 
@@ -97,6 +98,7 @@ I built this project to apply my skills in a practical way and share my personal
 📁 Portfolio : https://www-adityhede.com/
 
 🧠 **Next Steps**
+
 Add book search functionality using JavaScript
 
 Connect to a backend API (e.g., Goodreads or Google Books)
@@ -104,6 +106,7 @@ Connect to a backend API (e.g., Goodreads or Google Books)
 Add analytics to track visitor engagement
 
 📫 **Let’s Connect**
+
 I'm actively seeking entry-level roles in:
 
 Cloud/DevOps Engineering
