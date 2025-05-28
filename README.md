@@ -4,7 +4,7 @@ A personal project that blends my passion for books with hands-on cloud engineer
 This static website is built with **HTML/CSS**, hosted on **AWS S3**, delivered securely via **CloudFront**, and deployed automatically using **GitHub Actions CI/CD** — all within the AWS Free Tier.
 
 🔗 **Live Site**: [https://d3kwau84gyqo5s.cloudfront.net](https://d3kwau84gyqo5s.cloudfront.net)  
-💻 **GitHub Repo**: [https://github.com/Addy07-byte/book-recommendation-site](https://github.com/Addy07-byte/book-recommendation-site)
+💻 **GitHub Repo**: [https://github.com/Addy07-byte/book-recommendation-site](https://github.com/Addy07-byte/book-recommendation-website)
 
 ---
 
