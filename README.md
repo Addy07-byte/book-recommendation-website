@@ -66,25 +66,6 @@ This static website is built with **HTML/CSS**, hosted on **AWS S3**, delivered 
 
 ---
 
-## 🔄 GitHub Actions Workflow
-
-```yaml
-on:
-  push:
-    branches: [ main ]
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: aws-actions/configure-aws-credentials@v2
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ secrets.AWS_REGION }}
-    - run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }} --delete
-    - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
-
 ----
 
 🙋‍♂️ **About the Creator** 
@@ -94,21 +75,19 @@ I built this project to apply my skills in a practical way and share my personal
 📎 LinkedIn : https://www.linkedin.com/in/aditya-hede-1971211aa/
 📁 Portfolio : https://www-adityhede.com/
 
-🧠 Next Steps
+🧠 **Next Steps**
 Add book search functionality using JavaScript
 
 Connect to a backend API (e.g., Goodreads or Google Books)
 
 Add analytics to track visitor engagement
 
-📫 Let’s Connect
+📫 **Let’s Connect**
 I'm actively seeking entry-level roles in:
 
 Cloud/DevOps Engineering
 
 Solutions Architecture
-
-
 
 Technical Consulting
 
