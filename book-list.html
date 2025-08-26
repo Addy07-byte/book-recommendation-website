@@ -120,5 +120,46 @@
   }
 </script>
 
+<!-- AI Ask Panel -->
+<section class="book-list-section" id="ai-panel" style="max-width:900px;margin:40px auto;">
+  <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+    <input id="aiQuery" placeholder="Tell me what you want (e.g., beginner finance, habits)…"
+           style="flex:1; padding:12px 14px; border-radius:12px; border:1px solid #ddd;">
+    <button id="aiGo" class="btn primary">Ask AI</button>
+    <button id="aiClear" class="btn secondary">Clear</button>
+  </div>
+  <pre id="aiOut" style="white-space:pre-wrap; background:#fff; padding:14px; border-radius:12px; margin-top:10px;"></pre>
+</section>
+
+<script>
+  const API = "https://cihbrbulci3oqah7jpcmybvhfi0ygnux.lambda-url.us-east-1.on.aws/"; // paste your Lambda Function URL, no trailing slash
+  const qEl = document.getElementById("aiQuery");
+  const out = document.getElementById("aiOut");
+
+  async function askAI() {
+    const q = qEl.value.trim();
+    if (!q) { out.textContent = "Type what you want first."; return; }
+    out.textContent = "Thinking…";
+    try {
+      const res = await fetch(API + "/recommend", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ query: q, top_k: 3 })
+      });
+      const data = await res.json();
+      if (!data.results) { out.textContent = JSON.stringify(data, null, 2); return; }
+      out.textContent = data.results.map(r =>
+        `• ${r.title} — ${r.author} [${r.tag}] (score ${r.score})
+  ${r.desc}`
+      ).join("\n\n");
+    } catch (e) {
+      out.textContent = "Error: " + e.message;
+    }
+  }
+  document.getElementById("aiGo").onclick = askAI;
+  document.getElementById("aiClear").onclick = () => { qEl.value = ""; out.textContent = ""; };
+</script>
+
+
 </body>
 </html>
