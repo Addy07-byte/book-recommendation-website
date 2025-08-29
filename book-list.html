@@ -18,9 +18,7 @@
   <title>Book List | My Book Shelf</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+</head> 
 <!-- Hero Section for Book List -->
 <section class="book-list-hero">
   <h2>Books I Recommend 📚</h2>
@@ -131,14 +129,15 @@
   <pre id="aiOut" style="white-space:pre-wrap; background:#fff; padding:14px; border-radius:12px; margin-top:10px;"></pre>
 </section>
 
+
 <script>
-  const API = "https://cihbrbulci3oqah7jpcmybvhfi0ygnux.lambda-url.us-east-1.on.aws/"; // paste your Lambda Function URL, no trailing slash
+  const API = "https://cihbrbulci3oqah7jpcmybvhfi0ygnux.lambda-url.us-east-1.on.aws"; // paste your Lambda Function URL here
   const qEl = document.getElementById("aiQuery");
   const out = document.getElementById("aiOut");
 
   async function askAI() {
     const q = qEl.value.trim();
-    if (!q) { out.textContent = "Type what you want first."; return; }
+    if (!q) { out.textContent = "Type what you want  to learn about today."; return; }
     out.textContent = "Thinking…";
     try {
       const res = await fetch(API + "/recommend", {
@@ -146,7 +145,16 @@
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify({ query: q, top_k: 3 })
       });
-      const data = await res.json();
+
+      const text = await res.text();       // read raw
+      if (!res.ok) {                       // show error text if server failed
+        out.textContent = `Server error (${res.status}): ${text}`;
+        return;
+      }
+      let data;
+      try { data = JSON.parse(text); }
+      catch { out.textContent = `Bad JSON: ${text}`; return; }
+
       if (!data.results) { out.textContent = JSON.stringify(data, null, 2); return; }
       out.textContent = data.results.map(r =>
         `• ${r.title} — ${r.author} [${r.tag}] (score ${r.score})
@@ -156,9 +164,11 @@
       out.textContent = "Error: " + e.message;
     }
   }
+
   document.getElementById("aiGo").onclick = askAI;
   document.getElementById("aiClear").onclick = () => { qEl.value = ""; out.textContent = ""; };
 </script>
+
 
 
 </body>
